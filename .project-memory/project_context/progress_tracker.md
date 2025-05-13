@@ -1,11 +1,11 @@
 ---
 title: "Progress Tracker - Console Calculator"
-version: "0.1.3"
+version: "0.1.4"
 status: "Draft"
 created_by: "SPARC_Orchestrator"
 created_date: "2025-05-13T20:53:39Z"
 last_modified_by: "SPARC_Orchestrator"
-last_modified_date: "2025-05-13T23:04:05Z"
+last_modified_date: "2025-05-13T23:07:01Z"
 tags: ["progress", "tracker", "status", "project-management"]
 project_type_tags: ["cli-app", "python"]
 visibility: "internal"
@@ -23,7 +23,7 @@ This document tracks the progress of major phases and tasks for the Console Calc
 | `ARCH-HLD-001`      | Create High-Level Design (HLD)                    | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `SPEC-MAIN-001`     | HLD document created.                     |
 | `TEST-PLAN-001`     | Create Overall Test Plan                          | Completed   | TDD Tester          | 2025-05-13 | 2025-05-13 (Actual) | `SPEC-MAIN-001`     | Test Plan created.                        |
 | **Phase 2: Design & Specification** |                                   |             |                     |            |                       |              |                                           |
-| `ARCH-LLD-CALC-001` | LLD for Calculator Module                         | Pending     | Architect           | TBD        | TBD                   | `ARCH-HLD-001`      |                                           |
+| `ARCH-LLD-CALC-001` | LLD for Calculator Module                         | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for Calc module created.              |
 | `ARCH-LLD-IO-002`   | LLD for User Interface Module                     | Pending     | Architect           | TBD        | TBD                   | `ARCH-HLD-001`      |                                           |
 | `ARCH-LLD-ERR-003`  | LLD for Error Handling Module                     | Pending     | Architect           | TBD        | TBD                   | `ARCH-HLD-001`      |                                           |
 | **Phase 3: Implementation & Testing** |                               |             |                     |            |                       |              |                                           |
