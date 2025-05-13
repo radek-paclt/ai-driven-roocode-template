@@ -12,6 +12,8 @@ Key features:
 - **Persistent Memory**: The `.project-memory/` directory serves as the project's persistent memory
 - **Test-Driven Development**: Tests are written before implementation code
 - **Structured Communication**: Agents communicate using standardized protocols
+- **Cycle Detection**: System detects and resolves cyclic errors (zacyklení)
+- **Context Continuity**: Mechanisms ensure work continuity across context window recycling
 
 ## Agent Roles
 
@@ -19,33 +21,36 @@ The following custom modes (agents) are defined:
 
 | Agent | Role | Description |
 |-------|------|-------------|
-| ⚡️ SPARC Orchestrator | Coordination | Manages the development process, delegates tasks, and maintains project memory |
-| 📋 Specification Writer | Requirements | Transforms business requirements into detailed specifications and pseudocode |
-| 🏗️ Architect | Design | Designs system architecture, data models, and APIs |
-| 🧠 Auto-Coder | Implementation | Implements code based on specifications and tests |
-| 🧪 Tester (TDD) | Testing | Writes tests before implementation code |
-| 📚 Documentation Writer | Documentation | Generates and maintains project documentation |
-| 🛡️ Security Reviewer | Security | Conducts security audits of the codebase |
-| 🤝 Mediator Agent | Conflict Resolution | Helps resolve conflicts between other agents |
+| ⚡️ SPARC Orchestrator | Coordination | Manages the development process, delegates tasks, maintains project memory, and ensures context continuity |
+| 📋 Specification Writer | Requirements | Transforms business requirements into detailed specifications and pseudocode with focus on testability |
+| 🏗️ Architect | Design | Designs system architecture, data models, and APIs through HLD and LLD documents |
+| 🧠 Auto-Coder | Implementation | Implements code based on specifications and tests following TDD principles |
+| 🧪 Tester (TDD) | Testing | Writes comprehensive tests before implementation code for various test types |
+| 📚 Documentation Writer | Documentation | Generates and maintains project documentation for different audience types |
+| 🛡️ Security Reviewer | Security | Conducts security audits, vulnerability analysis, and recommends mitigations |
+| 🤝 Mediator Agent | Conflict Resolution | Resolves conflicts, prevents cyclic errors, and ensures alignment between agents |
 
 ## Directory Structure
 
 ```
 .
 ├── .roo/                           # RooCode configuration
-│   ├── custom_modes.json           # Custom modes definitions
+│   ├── .roomodes                   # Custom modes definitions
 │   ├── rules/                      # Global rules for all modes
+│   │   └── 06-context-continuity-guidelines.md  # Context continuity guidelines
 │   ├── rules-sparc/                # Rules for SPARC Orchestrator
+│   │   └── 04-context-management-and-continuity.md  # Context management rules
 │   ├── rules-spec-pseudocode/      # Rules for Specification Writer
 │   ├── rules-architect/            # Rules for Architect
 │   ├── rules-code/                 # Rules for Auto-Coder
 │   ├── rules-tdd/                  # Rules for TDD Tester
 │   ├── rules-docs-writer/          # Rules for Documentation Writer
-│   ├── rules-security-review/      # Rules for Security Reviewer
+│   ├── rules-security/             # Rules for Security Reviewer
 │   └── rules-mediator/             # Rules for Mediator Agent
 ├── .docs/                          # Project documentation
 │   ├── idea.md                     # Original concept document
-│   └── roocode_implementation_todolist.md  # Implementation todolist
+│   ├── role_instructions_todolist.md  # Implementation todolist
+│   └── sample-instructions.md      # Sample role instructions
 └── README.md                       # This file
 ```
 
@@ -78,6 +83,24 @@ The typical workflow follows the SPARC methodology:
    - The system is integrated and deployed
 
 Throughout this process, the SPARC Orchestrator manages the workflow, delegates tasks, and maintains the project's memory in the `.project-memory/` directory.
+
+## Cycle Detection and Context Continuity
+
+The system includes mechanisms to detect and resolve cyclic errors (zacyklení) and ensure work continuity across context window recycling:
+
+### Cycle Detection
+
+- **Pattern Recognition**: Identifies repetitive patterns in agent interactions
+- **Root Cause Analysis**: Determines underlying causes of cyclic errors
+- **Intervention Strategies**: Implements techniques to break cycles
+- **Documentation**: Records cycles and resolutions in `cycle_detection_log.md`
+
+### Context Continuity
+
+- **Regular Summarization**: Creates concise summaries of project state
+- **Checkpoints**: Establishes checkpoints at natural project milestones
+- **Context Recovery**: Implements protocols for recovering context after recycling
+- **Hierarchical Documentation**: Maintains documentation at multiple levels of detail
 
 ## Communication Protocols
 
@@ -170,8 +193,11 @@ The `.project-memory/` directory serves as the project's persistent memory. It i
 │   ├── decision_log.md
 │   ├── system_patterns.md
 │   ├── progress_tracker.md
-│   └── conflict_resolution_log.md
+│   ├── conflict_resolution_log.md
+│   ├── cycle_detection_log.md
+│   └── state_summaries/           # Project state summaries for continuity
 ├── hld/                           # High-Level Design documents
+│   └── summaries/                 # Architecture summaries for quick context recovery
 ├── lld/                           # Low-Level Design documents
 └── project_postulates.md
 ```
@@ -185,6 +211,8 @@ You can customize this template by:
 1. Modifying the agent definitions in `.roo/custom_modes.json`
 2. Updating the rules in the `.roo/rules/` and `.roo/rules-*/` directories
 3. Adjusting the project memory structure in the Orchestrator's guidelines
+4. Customizing the cycle detection and context continuity mechanisms
+5. Modifying the communication protocols between agents
 
 ## License
 
@@ -194,3 +222,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Based on the SPARC methodology concept in `.docs/idea.md`
 - Implemented using RooCode's Custom Modes and Boomerang Tasks features
+- Enhanced with cycle detection and context continuity mechanisms
+- Detailed role instructions available in `.docs/` directory

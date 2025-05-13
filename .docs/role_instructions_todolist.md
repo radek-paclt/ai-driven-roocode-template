@@ -118,11 +118,29 @@ Tento dokument obsahuje plán pro další iteraci implementace rooCode konfigura
        - [x] Security Reviewer
        - [x] Mediator Agent
      - [x] Aktualizace globálních pravidel
-   - [ ] Testování interakcí mezi agenty
+   - [x] Aktualizace README souboru v rootu projektu
+   - [x] Vytvoření struktury pro testování
+     - [x] Vytvoření adresáře `.docs/test_scenarios/`
+     - [x] Vytvoření README souboru pro testovací scénáře
+     - [x] Definování procesu testování
+   - [x] Vytvoření testovacích scénářů
+     - [x] Základní end-to-end test
+     - [x] Test kontinuity práce
+     - [x] Test řešení konfliktů
+     - [x] Test bezpečnostní revize
+     - [x] Test dokumentace
+   - [ ] Provedení testů
    - [ ] Ladění a optimalizace
 
 4. **Fáze 4: Dokumentace a finalizace**
    - [ ] Vytvoření dokumentace pro uživatele systému
+   - [ ] Provedení testů a vyhodnocení výsledků
+     - [ ] Provedení základního end-to-end testu
+     - [ ] Provedení testu kontinuity práce
+     - [ ] Provedení testu řešení konfliktů
+     - [ ] Provedení testu bezpečnostní revize
+     - [ ] Provedení testu dokumentace
+     - [ ] Vytvoření souhrnné zprávy o výsledcích testů
    - [ ] Finální revize a schválení
    - [ ] Nasazení aktualizovaných konfiguračních souborů
 
