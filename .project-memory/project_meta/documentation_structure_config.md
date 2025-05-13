@@ -1,11 +1,11 @@
 ---
 title: "Documentation Structure Configuration"
-version: "1.0.0"
+version: "1.0.1"
 status: "ApprovedByTechLead"
 created_by: "SPARC_Orchestrator"
 created_date: "2025-05-13T20:51:50Z"
 last_modified_by: "SPARC_Orchestrator"
-last_modified_date: "2025-05-13T20:51:50Z"
+last_modified_date: "2025-05-13T20:54:42Z"
 tags: ["meta", "configuration", "documentation"]
 visibility: "internal"
 ---
@@ -38,6 +38,9 @@ This document defines the structure of the `.project-memory/` directory.
 
 The following modules will be created as needed:
 
+- **specifications/**: Detailed functional and non-functional specifications.
+  - `SPEC-MAIN-001_console_calculator_main_specification.md`: The main specification document for the calculator.
+
 - **hld/**: High-Level Design documents.
   - `HLD-MAIN-001_main_architecture.md`: Main architecture document for the console calculator.
 - **lld/**: Low-Level Design documents.
@@ -58,3 +61,4 @@ The following modules will be created as needed:
 ## Change Log
 
 - 2025-05-13: Initial structure created for the Console Calculator project.
+- 2025-05-13: Added `specifications/` module for main specification document.
