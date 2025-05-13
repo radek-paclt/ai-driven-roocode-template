@@ -1,11 +1,11 @@
 ---
 title: "Progress Tracker - Console Calculator"
-version: "0.1.6"
+version: "0.1.7"
 status: "Draft"
 created_by: "SPARC_Orchestrator"
 created_date: "2025-05-13T20:53:39Z"
 last_modified_by: "SPARC_Orchestrator"
-last_modified_date: "2025-05-13T23:14:52Z"
+last_modified_date: "2025-05-13T23:19:03Z"
 tags: ["progress", "tracker", "status", "project-management"]
 project_type_tags: ["cli-app", "python"]
 visibility: "internal"
@@ -27,7 +27,7 @@ This document tracks the progress of major phases and tasks for the Console Calc
 | `ARCH-LLD-IO-002`   | LLD for User Interface Module                     | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for UI module created.                |
 | `ARCH-LLD-ERR-003`  | LLD for Error Handling Module                     | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for Error Handling module created.    |
 | **Phase 3: Implementation & Testing** |                               |             |                     |            |                       |              |                                           |
-| `TEST-CASES-CALC-002`| Test Cases for Calculator Logic                  | Pending     | TDD Tester          | TBD        | TBD                   | `ARCH-LLD-CALC-001`, `TEST-PLAN-001` |                                           |
+| `TEST-CASES-CALC-002`| Test Cases for Calculator Logic                  | Completed   | TDD Tester          | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-LLD-CALC-001`, `TEST-PLAN-001` | Test cases for calc logic created.        |
 | `CODE-CALC-001`     | Implement Calculator Logic                        | Pending     | Auto-Coder          | TBD        | TBD                   | `TEST-CASES-CALC-002` |                                           |
 | `TEST-CASES-IO-003` | Test Cases for UI                                 | Pending     | TDD Tester          | TBD        | TBD                   | `ARCH-LLD-IO-002`, `TEST-PLAN-001` |                                           |
 | `CODE-IO-002`       | Implement User Interface                          | Pending     | Auto-Coder          | TBD        | TBD                   | `TEST-CASES-IO-003` |                                           |
