@@ -5,7 +5,7 @@ status: "Draft"
 created_by: "SPARC_Orchestrator"
 created_date: "2025-05-13T20:53:39Z"
 last_modified_by: "SPARC_Orchestrator"
-last_modified_date: "2025-05-14T06:55:00Z"
+last_modified_date: "2025-05-14T06:58:00Z"
 tags: ["progress", "tracker", "status", "project-management"]
 project_type_tags: ["cli-app", "python"]
 visibility: "internal"
@@ -26,7 +26,7 @@ This document tracks the progress of major phases and tasks for the Console Calc
 | `ARCH-LLD-CALC-001` | LLD for Calculator Module                         | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for Calc module created.              |
 | `ARCH-LLD-IO-002`   | LLD for User Interface Module                     | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for UI module created.                |
 | `ARCH-LLD-ERR-003`  | LLD for Error Handling Module                     | Completed   | Architect           | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-HLD-001`      | LLD for Error Handling module created.    |
-| `ARCH-LLD-PARSER-004`| LLD for Input Parser Module                      | Pending     | Architect           | TBD        | TBD                   | `ARCH-HLD-001`, `SPEC-MAIN-001` | LLD for the input parser.                 |
+| `ARCH-LLD-PARSER-004`| LLD for Input Parser Module                      | Completed   | Architect           | 2025-05-14 | 2025-05-14 (Actual) | `ARCH-HLD-001`, `SPEC-MAIN-001` | LLD for the input parser created.         |
 | **Phase 3: Implementation & Testing** |                               |             |                     |            |                       |              |                                           |
 | `TEST-CASES-CALC-002`| Test Cases for Calculator Logic                  | Completed   | TDD Tester          | 2025-05-13 | 2025-05-13 (Actual) | `ARCH-LLD-CALC-001`, `TEST-PLAN-001` | Test cases for calc logic created.        |
 | `CODE-CALC-001`     | Implement Calculator Logic                        | Completed   | Auto-Coder          | 2025-05-13 | 2025-05-14 (Actual) | `TEST-CASES-CALC-002` | Engine, exceptions, and tests implemented. |
