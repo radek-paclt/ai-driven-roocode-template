@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+pythonpath = [
+    "src",
+    "."
+]
+testpaths = [
+    "tests"
+]
+# Minimal configuration to ensure project root is on pythonpath
+# and tests are discovered in the 'tests' directory.
