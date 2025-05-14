@@ -1,11 +1,11 @@
 ---
 title: "Progress Tracker - Console Calculator"
-version: "0.2.0"
+version: "0.2.1"
 status: "Draft"
 created_by: "SPARC_Orchestrator"
 created_date: "2025-05-13T20:53:39Z"
 last_modified_by: "SPARC_Orchestrator"
-last_modified_date: "2025-05-14T06:58:00Z"
+last_modified_date: "2025-05-14T06:58:30Z"
 tags: ["progress", "tracker", "status", "project-management"]
 project_type_tags: ["cli-app", "python"]
 visibility: "internal"
@@ -33,7 +33,9 @@ This document tracks the progress of major phases and tasks for the Console Calc
 | `TEST-CASES-IO-003` | Test Cases for UI                                 | Completed   | TDD Tester          | 2025-05-14 | 2025-05-14 (Actual) | `ARCH-LLD-IO-002`, `TEST-PLAN-001` | Test cases for UI created.                |
 | `CODE-IO-002`       | Implement User Interface                          | Completed   | Auto-Coder          | 2025-05-14 | 2025-05-14 (Actual) | `TEST-CASES-IO-003` | UI module and tests implemented.          |
 | `CODE-ERR-003`      | Implement Error Handling                          | Completed   | Auto-Coder          | 2025-05-14 | 2025-05-14 (Actual) | `ARCH-LLD-ERR-003`  | Custom exceptions implemented in `src/calculator/exceptions.py` by `CODE-CALC-001`. |
-| `CODE-MAIN-004`     | Implement Main Application (integrating modules)  | Pending     | Auto-Coder          | TBD        | TBD                   | `CODE-CALC-001`, `CODE-IO-002`, `CODE-ERR-003`, `CODE-PARSER-005` | Needs Input Parser implementation.        |
+| `TEST-CASES-PARSER-005`| Test Cases for Input Parser                     | Pending     | TDD Tester          | TBD        | TBD                   | `ARCH-LLD-PARSER-004`, `TEST-PLAN-001` | Test cases for the input parser.          |
+| `CODE-PARSER-006`   | Implement Input Parser                            | Pending     | Auto-Coder          | TBD        | TBD                   | `TEST-CASES-PARSER-005` |                                           |
+| `CODE-MAIN-004`     | Implement Main Application (integrating modules)  | Pending     | Auto-Coder          | TBD        | TBD                   | `CODE-CALC-001`, `CODE-IO-002`, `CODE-ERR-003`, `CODE-PARSER-006` | Needs Input Parser implementation.        |
 | `TEST-INT-004`      | Integration Testing                               | Pending     | TDD Tester          | TBD        | TBD                   | `CODE-MAIN-004`     |                                           |
 | **Phase 4: Documentation & Review** |                                 |             |                     |            |                       |              |                                           |
 | `DOCS-USER-001`     | Create User Manual                                | Pending     | Docs Writer         | TBD        | TBD                   | `CODE-MAIN-004`     |                                           |
