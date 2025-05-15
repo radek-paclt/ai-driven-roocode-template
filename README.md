@@ -12,7 +12,7 @@ Key features:
 - **Persistent Memory**: The `.project-memory/` directory serves as the project's persistent memory
 - **Test-Driven Development**: Tests are written before implementation code
 - **Structured Communication**: Agents communicate using standardized protocols
-- **Cycle Detection**: System detects and resolves cyclic errors (zacyklení)
+- **Cycle Detection**: System detects and resolves cyclic errors
 - **Context Continuity**: Mechanisms ensure work continuity across context window recycling
 
 ## Agent Roles
