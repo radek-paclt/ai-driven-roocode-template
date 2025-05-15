@@ -2,6 +2,24 @@
 
 This repository contains a RooCode configuration for implementing the SPARC methodology for AI-driven software development. The configuration is based on the concept described in `.docs/idea.md` and uses RooCode's Custom Modes and Boomerang Tasks features to orchestrate a team of specialized AI agents.
 
+## Release Notes
+
+### Current Version: 1.0.0
+
+#### Iterations
+- **Iteration 000: MVP** ✅ DONE
+  - Initial implementation of SPARC methodology
+  - Basic agent roles and communication protocols
+  - Project memory structure
+  - Cycle detection and context continuity mechanisms
+
+- **Iteration 001: Orchestrator Improvements** 🔄 IN PROGRESS
+  - New EpicCoordinator role for managing orchestrator recycling
+  - Enhanced memory system for better context preservation
+  - Improved agent communication with better result handling
+  - Standardized .gitignore and git management
+  - Command line validation for code execution
+
 ## Overview
 
 The SPARC methodology (Specification, Pseudocode, Architecture, Refinement, Completion) provides a structured approach to AI-driven software development. This implementation uses RooCode's Custom Modes to define specialized agents for each aspect of the development process, with the SPARC Orchestrator coordinating the workflow.
@@ -14,6 +32,7 @@ Key features:
 - **Structured Communication**: Agents communicate using standardized protocols
 - **Cycle Detection**: System detects and resolves cyclic errors
 - **Context Continuity**: Mechanisms ensure work continuity across context window recycling
+- **Epic-Based Development**: Projects are divided into epics managed by the EpicCoordinator
 
 ## Agent Roles
 
@@ -21,7 +40,8 @@ The following custom modes (agents) are defined:
 
 | Agent | Role | Description |
 |-------|------|-------------|
-| ⚡️ SPARC Orchestrator | Coordination | Manages the development process, delegates tasks, maintains project memory, and ensures context continuity |
+| 🌟 EpicCoordinator | Project Management | Manages the project at epic level, recycles orchestrators, and maintains high-level project overview |
+| ⚡️ SPARC Orchestrator | Epic Coordination | Manages the development process for a single epic, delegates tasks, maintains epic memory, and ensures context continuity |
 | 📋 Specification Writer | Requirements | Transforms business requirements into detailed specifications and pseudocode with focus on testability |
 | 🏗️ Architect | Design | Designs system architecture, data models, and APIs through HLD and LLD documents |
 | 🧠 Auto-Coder | Implementation | Implements code based on specifications and tests following TDD principles |
@@ -38,7 +58,8 @@ The following custom modes (agents) are defined:
 │   ├── .roomodes                   # Custom modes definitions
 │   ├── rules/                      # Global rules for all modes
 │   │   └── 06-context-continuity-guidelines.md  # Context continuity guidelines
-│   ├── rules-sparc/                # Rules for SPARC Orchestrator
+│   ├── rules-epic-coordinator/     # Rules for EpicCoordinator
+│   ├── rules-orchestrator/         # Rules for SPARC Orchestrator
 │   │   └── 04-context-management-and-continuity.md  # Context management rules
 │   ├── rules-spec-pseudocode/      # Rules for Specification Writer
 │   ├── rules-architect/            # Rules for Architect
@@ -49,12 +70,18 @@ The following custom modes (agents) are defined:
 │   └── rules-mediator/             # Rules for Mediator Agent
 ├── .docs/                          # Project documentation
 │   ├── idea.md                     # Original concept document
+│   ├── iterations/                 # Iteration planning and documentation
+│   │   └── 001/                    # Current iteration
+│   │       ├── todo.md             # Todo list for the iteration
+│   │       ├── epic-coordinator-design.md  # Design of EpicCoordinator
+│   │       └── enhanced-memory-system.md   # Enhanced memory system design
+│   ├── test_scenarios/             # Test scenarios for validation
 │   ├── role_instructions_todolist.md  # Implementation todolist
 │   └── sample-instructions.md      # Sample role instructions
 └── README.md                       # This file
 ```
 
-During project execution, the SPARC Orchestrator will create and maintain the `.project-memory/` directory, which serves as the project's persistent memory.
+During project execution, the EpicCoordinator and Orchestrators will create and maintain the `.project-memory/` directory, which serves as the project's persistent memory.
 
 ## Getting Started
 
@@ -63,26 +90,33 @@ To use this template:
 1. Ensure you have RooCode installed in your VS Code environment
 2. Clone this repository
 3. Open the repository in VS Code
-4. Start a conversation with the SPARC Orchestrator mode
+4. Start a conversation with the EpicCoordinator mode
 5. Describe your project requirements
-6. The Orchestrator will guide you through the development process
+6. The EpicCoordinator will guide you through the development process
 
 ## Development Workflow
 
-The typical workflow follows the SPARC methodology:
+The typical workflow follows the SPARC methodology with epic-based development:
 
-1. **Specification**: The Business Owner describes requirements to the Orchestrator, who delegates to the Specification Writer to create detailed specifications
-2. **Pseudocode**: The Specification Writer creates pseudocode to guide implementation
-3. **Architecture**: The Architect designs the system architecture, data models, and APIs
-4. **Refinement**:
-   - The TDD Tester writes tests based on specifications
-   - The Auto-Coder implements code that passes the tests
-   - The Security Reviewer conducts security audits
-5. **Completion**:
-   - The Documentation Writer creates user documentation
-   - The system is integrated and deployed
+1. **Project Initialization**:
+   - The Business Owner describes requirements to the EpicCoordinator
+   - The EpicCoordinator captures the initial idea and divides the project into epics
+   - The EpicCoordinator delegates the first epic to an Orchestrator
 
-Throughout this process, the SPARC Orchestrator manages the workflow, delegates tasks, and maintains the project's memory in the `.project-memory/` directory.
+2. **Epic Implementation** (for each epic):
+   - **Specification**: The Orchestrator delegates to the Specification Writer to create detailed specifications
+   - **Pseudocode**: The Specification Writer creates pseudocode to guide implementation
+   - **Architecture**: The Architect designs or refines the system architecture
+   - **Refinement**:
+     - The TDD Tester writes tests based on specifications
+     - The Auto-Coder implements code that passes the tests
+     - The Security Reviewer conducts security audits
+   - **Completion**:
+     - The Documentation Writer creates or updates documentation
+     - The Orchestrator returns results to the EpicCoordinator
+     - The EpicCoordinator updates the epic tracker and delegates the next epic
+
+Throughout this process, the EpicCoordinator maintains the high-level project overview, while each Orchestrator manages the workflow for a single epic. This approach ensures that the context window remains manageable and that all important information is preserved between orchestrator recycling.
 
 ## Cycle Detection and Context Continuity
 
@@ -178,28 +212,38 @@ The `.project-memory/` directory serves as the project's persistent memory. It i
 
 ```
 .project-memory/
-├── project_meta/
+├── project_meta/                  # Metadata projektu
 │   ├── documentation_structure_config.md
 │   └── project_glossary.md
-├── idea_clarification/
+├── idea_clarification/            # Počáteční myšlenka a upřesnění
 │   ├── 01_initial_idea_capture.md
 │   ├── 02_architect_clarification_log.md
 │   ├── 03_architectural_explanations_for_bv.md
 │   ├── 04_refined_idea_and_scope.md
 │   └── bv_architect_sync_log.md
-├── project_context/
-│   ├── product_overview.md
-│   ├── active_threads.md
-│   ├── decision_log.md
-│   ├── system_patterns.md
-│   ├── progress_tracker.md
-│   ├── conflict_resolution_log.md
-│   ├── cycle_detection_log.md
-│   └── state_summaries/           # Project state summaries for continuity
-├── hld/                           # High-Level Design documents
-│   └── summaries/                 # Architecture summaries for quick context recovery
-├── lld/                           # Low-Level Design documents
-└── project_postulates.md
+├── project_context/               # Globální kontext projektu
+│   ├── product_overview.md        # Přehled produktu
+│   ├── epic_tracker.md            # Přehled všech epiců
+│   ├── global_decision_log.md     # Globální rozhodnutí
+│   ├── bv_communication_log.md    # Komunikace s Business Vlastníkem
+│   ├── system_patterns.md         # Vzory systému
+│   ├── progress_tracker.md        # Sledování postupu
+│   ├── conflict_resolution_log.md # Řešení konfliktů
+│   ├── cycle_detection_log.md     # Detekce cyklů
+│   └── summaries/                 # Sumarizace projektu (vysoká úroveň)
+├── hld/                           # Globální High-Level Design
+├── lld/                           # Globální Low-Level Design (architektura)
+├── epics/                         # Struktura pro epicy
+│   ├── EPIC-001/                  # Specifické informace pro Epic 1
+│   │   ├── epic_state.md          # Stav epicu
+│   │   ├── task_tracker.md        # Sledování úkolů v rámci epicu
+│   │   ├── epic_decision_log.md   # Rozhodnutí specifická pro epic
+│   │   ├── agent_communication_log.md # Komunikace mezi agenty v rámci epicu
+│   │   ├── epic_lld/              # LLD specifické pro implementaci epicu
+│   │   └── checkpoints/           # Checkpointy epicu
+│   │       └── ...
+│   └── ...
+└── project_postulates.md          # Postuláty projektu
 ```
 
 Additional directories may be added as needed based on project requirements.
